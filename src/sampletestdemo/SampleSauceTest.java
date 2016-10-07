@@ -7,8 +7,8 @@ import java.net.URL;
 
 public class SampleSauceTest {
 
-  public static final String USERNAME = "YOUR_USERNAME";
-  public static final String ACCESS_KEY = "YOUR_ACCESS_KEY";
+  public static final String USERNAME = "amarnath.m@zucisystems.com";
+  public static final String ACCESS_KEY = "Zuci@456";
   public static final String URL = "https://" + USERNAME + ":" + ACCESS_KEY + "@ondemand.saucelabs.com:443/wd/hub";
 
   public static void main(String[] args) throws Exception {
@@ -20,7 +20,7 @@ public class SampleSauceTest {
     capabilities.setCapability("app", "http://saucelabs.com/example_files/ContactManager.apk");
     capabilities.setCapability("browserName", "");
     capabilities.setCapability("deviceOrientation", "portrait");
-    capabilities.setCapability("appiumVersion", "1.5.3");
+    capabilities.setCapability("appiumVersion", "3.1.0");
 
     WebDriver driver = new AndroidDriver<>(new URL(URL), capabilities);
 
