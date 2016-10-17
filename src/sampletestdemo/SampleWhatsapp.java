@@ -26,7 +26,7 @@ public class SampleWhatsapp {
 		capabilities.setCapability(CapabilityType.BROWSER_NAME, ""); //Name of mobile web browser to automate. Should be an empty string if automating an app instead.
 		capabilities.setCapability(CapabilityType.VERSION, "5.1.1");
 		capabilities.setCapability(CapabilityType.PLATFORM, "Windows");
-		capabilities.setCapability("app-package", "APP PACKAGE"); //Replace with your app's package
+		capabilities.setCapability("app-package", "com.whatsapp"); //Replace with your app's package
 		capabilities.setCapability("app-activity", "com.whatsapp.Main"); //Replace with app's Activity
 		driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
 	}
