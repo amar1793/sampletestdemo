@@ -15,7 +15,8 @@ public class sample {
 
 	@SuppressWarnings({ "rawtypes" })
 	public static void main(String [] args) throws Exception {
-
+		
+		try{
 		// set up appium and tell from where it can install the apk file from
 		// computer to device
 		File appDir = new File("F:\\Project Softwares");
@@ -25,7 +26,7 @@ public class sample {
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setCapability(CapabilityType.BROWSER_NAME, "");
 		capabilities.setCapability(CapabilityType.PLATFORM, "Android");
-		capabilities.setCapability(CapabilityType.VERSION, "5.1.1");
+		capabilities.setCapability(CapabilityType.VERSION, "6.0");
 		capabilities.setCapability("deviceName", "ZuciTest");
 		capabilities.setCapability("autoLaunch",true);
 		capabilities.setCapability("automationName", "Appium");
@@ -35,8 +36,14 @@ public class sample {
 		capabilities.setCapability("appActivity", "org.mozilla.gecko.BrowserApp");
 		// The URL where the hub will start
 		driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		driver.get("http://www.google.com");
+		
+		} catch (Exception e){
+			e.printStackTrace();
+		}
+		finally {
 		driver.close();
+		}
 	}
 	}
