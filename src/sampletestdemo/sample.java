@@ -1,49 +1,62 @@
 package sampletestdemo;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.Proxy;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import io.appium.java_client.android.AndroidDriver;
+import net.lightbody.bmp.BrowserMobProxyServer;
+import net.lightbody.bmp.client.ClientUtil;
+import net.lightbody.bmp.core.har.Har;
 
 public class sample {
-	
-	public static WebDriver driver;
 
 	@SuppressWarnings({ "rawtypes" })
 	public static void main(String [] args) throws Exception {
 		
-		try{
-		// set up appium and tell from where it can install the apk file from
-		// computer to device
-		File appDir = new File("F:\\Project Softwares");
-		File app = new File(appDir, "org.mozilla.firefox.apk");
-		// Very important properties you need for Appium to work, change as per
-		// SDK and device name
-		DesiredCapabilities capabilities = new DesiredCapabilities();
-		capabilities.setCapability(CapabilityType.BROWSER_NAME, "");
-		capabilities.setCapability(CapabilityType.PLATFORM, "Android");
-		capabilities.setCapability(CapabilityType.VERSION, "6.0");
-		capabilities.setCapability("deviceName", "ZuciTest");
-		capabilities.setCapability("autoLaunch",true);
-		capabilities.setCapability("automationName", "Appium");
-		capabilities.setCapability("app", app.getAbsolutePath());
+		BrowserMobProxyServer server = new BrowserMobProxyServer();
+		DesiredCapabilities capabilities = null;
+		RemoteWebDriver driver = null;
 		
-		capabilities.setCapability("appPackage", "org.mozilla.firefox");
-		capabilities.setCapability("appActivity", "org.mozilla.gecko.BrowserApp");
-		// The URL where the hub will start
+		try{
+			server.start();
+
+			Proxy proxy = ClientUtil.createSeleniumProxy(server);
+		
+		capabilities = new DesiredCapabilities();
+		capabilities.setCapability(CapabilityType.BROWSER_NAME, "Browser");
+		capabilities.setCapability("automationName", "Appium");
+		capabilities.setCapability(CapabilityType.PLATFORM, "Android");
+		capabilities.setCapability(CapabilityType.PROXY, proxy);
+		capabilities.setCapability(CapabilityType.VERSION, "4.4.1");
+		capabilities.setCapability("deviceName", "Zu");
+		capabilities.setCapability("appPackage", "com.android.browser");
+		capabilities.setCapability("appActivity", "com.android.browser.BrowserActivity");
+		capabilities.setCapability("noReset", false);
+		
+		server.newHar("facebook.com");
+
 		driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-		driver.get("http://www.google.com");
+		driver.get("http://www.facebook.com");
+		try{
+			driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			Har har = server.getHar();
+			
+			File file = new File("Sample.har");
+			FileOutputStream fos = new FileOutputStream(file);
+			har.writeTo(fos);
 		
 		} catch (Exception e){
 			e.printStackTrace();
-		}
-		finally {
-		driver.close();
+		} 
+		} finally {
+			server.stop();
+			driver.close();
 		}
 	}
-	}
+}
