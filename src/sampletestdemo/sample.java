@@ -31,7 +31,7 @@ public class sample {
 			capabilities.setCapability(CapabilityType.PLATFORM, "Android");
 			capabilities.setCapability(CapabilityType.PROXY, proxy);
 			capabilities.setCapability(CapabilityType.VERSION, "4.4.1");
-			capabilities.setCapability("deviceName", "Zu");
+			capabil nities.setCapability("deviceName", "Zu");
 			capabilities.setCapability("appPackage", "com.android.browser");
 			capabilities.setCapability("appActivity", "com.android.browser.BrowserActivity");
 			capabilities.setCapability("noReset", false); */
