@@ -13,7 +13,7 @@ import net.lightbody.bmp.core.har.Har;
 
 public class sample {
 
-	@SuppressWarnings({ "rawtypes" })
+	@SuppressWarnings({ "rawtypes", "static-access" })
 	public static void main(String [] args) throws Exception {
 		
 		BrowserMobProxyServer server = new BrowserMobProxyServer();
@@ -36,16 +36,16 @@ public class sample {
 			capabilities.setCapability("appActivity", "com.android.browser.BrowserActivity");
 			capabilities.setCapability("noReset", false); */
 			
-			capabilities = new DesiredCapabilities();
+			capabilities = new DesiredCapabilities().android();
 			capabilities.setCapability(MobileCapabilityType.PROXY, proxy);
 			capabilities.setCapability("automationName", "Appium");
 			capabilities.setCapability("platformName", "Android");
-			capabilities.setCapability("platformVersion", "4.4.2");
-			capabilities.setCapability("deviceName", "Zu");
-			capabilities.setCapability("browserName", "Browser");
-			//capabilities.setCapability("newCommandTimeout", 60);
-			capabilities.setCapability("appPackage", "com.android.chrome");
-			capabilities.setCapability("appActivity", "com.android.chrome.Main");
+			capabilities.setCapability("platformVersion", "4.1.2");
+			capabilities.setCapability("deviceName", "ZuciTest");
+			capabilities.setCapability("browserName", "chrome");
+			capabilities.setCapability("newCommandTimeout", 60);
+			capabilities.setCapability("appPackage", "com.android.browser");
+			capabilities.setCapability("appActivity", "com.android.browser.BrowserActivity");
 		
 		server.newHar("http://www.rediff.com");
 		driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
