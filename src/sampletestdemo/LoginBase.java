@@ -14,7 +14,7 @@ public class LoginBase {
 		} catch (Exception e){
 			e.printStackTrace();
 		} finally{
-			//driver.close();
+			driver.close();
 		}
 	}
 	

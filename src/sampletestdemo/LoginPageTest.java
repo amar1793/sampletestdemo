@@ -1,6 +1,5 @@
 package sampletestdemo;
 
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class LoginPageTest {
@@ -10,15 +9,31 @@ public class LoginPageTest {
 	String uNameVal = "amarnath1793";
 	String passVal = "iamstupid";
 
-	@BeforeTest
+	@Test
 	public void launchPage(){
-
-		try{
-			lbase.launchTest("https://www.google.co.in/search?site=&q=Children%27s+Day+in+India&oi=ddle&ct=doodle-4-google-childrens-day-2016-india-5995349191688192-hp&hl=en&sa=X&ved=0ahUKEwi9ktfcz6fQAhXKCSwKHSRQAosQPQgE&biw=1366&bih=662&dpr=1");
-		} catch(Exception e){
-			e.printStackTrace();
-		}
+			lbase.launchTest("http://www.facebook.com");
+		
 	}
+	@Test
+	public void launchPage1(){
+		lbase.launchTest("http://www.google.com");
+	
+}
+	@Test
+	public void launchPage2(){
+		lbase.launchTest("http://www.rediff.com");
+	
+}
+	@Test
+	public void launchPage3(){
+		lbase.launchTest("http://www.outlook.com");
+	
+}
+	@Test
+	public void launchPage4(){
+		lbase.launchTest("http://www.guru99.com");
+	
+}
 	
 /*	@Test
 	public void enterValue(){
@@ -38,7 +53,7 @@ public class LoginPageTest {
 		} catch (Exception e){
 			e.printStackTrace();
 		}
-	}	*/
+	}	
 
 	@Test
 	public void getimage(){
@@ -47,5 +62,5 @@ public class LoginPageTest {
 		} catch (Exception e){
 			e.printStackTrace();
 		}
-	}
+	}	*/
 }

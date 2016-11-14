@@ -20,7 +20,25 @@ public class SeleniumBase {
 		}
 	}
 	
-	/*		Get the Table Date		*/
+	/*		Enter the value to Textbox		*/
+	public void enterToTextbox(WebDriver driver, String elementFunction, String elementValue){
+		try{
+			driver.findElement(By.id(elementFunction)).sendKeys(elementValue);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	
+	/*		Click the Radio Button		*/
+	public void clickEvent(WebDriver driver, String elementFunction){
+		try{
+			driver.findElement(By.id(elementFunction)).click();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	
+	/*		Get the Table Data		*/
 	public void tableData(WebDriver driver, String elementFunction){
 		try{
 			driver.findElement(By.xpath(elementFunction)).getText();
@@ -40,7 +58,7 @@ public class SeleniumBase {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		}
+	}
 	
 	
 	
