@@ -21,7 +21,7 @@ public class SeleniumBase {
 	/*		Get the Table Date		*/
 	public void tableData(WebDriver driver, String elementFunction){
 		try{
-			driver.findElement(By.xpath(elementFunction)).getText();	// for table value, the value to be specified in xpath only
+			driver.findElement(By.xpath(elementFunction)).getText();
 			// String str = driver.findElement(By.xpath(elementFunction)).getText(); 
 			// System.out.println(str);			// method to print the table value
 		}catch(Exception e){
@@ -32,10 +32,13 @@ public class SeleniumBase {
 	/*		Accessing the Link		*/
 	public void linkData(WebDriver driver, String elementFunction){
 		try{
-			
+			driver.findElement(By.linkText(elementFunction)).click();
+			//driver.findElement(By.partialLinkText(elementFunction)).click();	//partial values (e.g click here = here)
 		}catch(Exception e){
 			e.printStackTrace();
 		}
 		}
+	
+	
 	
 }
