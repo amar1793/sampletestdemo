@@ -2,7 +2,9 @@ package sampletestdemo;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
 
 public class SeleniumBase {
 	
@@ -30,13 +32,58 @@ public class SeleniumBase {
 	}
 	
 	/*		Click the Radio Button		*/
-	public void clickEvent(WebDriver driver, String elementFunction){
+	public void clickRadio(WebDriver driver, String elementFunction){
 		try{
-			driver.findElement(By.id(elementFunction)).click();
+			driver.findElement(By.id(elementFunction)).isSelected();
 		}catch(Exception e){
 			e.printStackTrace();
 		}
 	}
+	
+	/*		Select from Dropdown		*/
+	public boolean dropDown(WebDriver driver, String elementFunction, String elementValue ){
+    	try{
+    		new Select(driver.findElement(By.id(elementFunction))).selectByVisibleText(elementValue);
+    		return equals(null);
+    	}catch (Exception e){
+    		e.printStackTrace();  
+    		return false;
+    	}
+    }
+	
+	/*		Select from Listbox		*/
+	public void listDown(WebDriver driver, String elementFunction, String elementValue ){
+    	try{
+    		 Select dataDropDown = new Select(driver.findElement(By.xpath(elementFunction)));
+    	     dataDropDown.selectByVisibleText(elementValue);
+    	}catch (Exception e){
+    		e.printStackTrace();  
+    	}
+    }
+	
+	/*		Select from Checkbox		*/
+	public boolean isChecked(WebDriver driver, String elementFunction){
+    	try{
+    		return driver.findElement(By.id(elementFunction)).isSelected();
+    	}catch (Exception e){
+    		e.printStackTrace();
+    		return false;
+    	}
+    }
+    
+	
+	/*		Click the Submit Button		*/
+	 public boolean submitButton(WebDriver driver, String elementFunction)
+	    {
+	    	try{
+	    		driver.findElement(By.id(elementFunction)).click();
+	    		return true;
+	    	}
+	    	catch (Exception e){
+	    		e.printStackTrace();
+	    		return false;
+	    	}
+	    }
 	
 	/*		Get the Table Data		*/
 	public void tableData(WebDriver driver, String elementFunction){
@@ -60,6 +107,23 @@ public class SeleniumBase {
 		}
 	}
 	
-	
-	
+	/*		Read the Label		*/
+	public void labelRead(WebDriver driver, String elementFunction){
+		try{
+			WebElement element = driver.findElement(By.id(elementFunction));
+			String label = element.getText();
+			System.out.println(label);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	} 
+
+	/*		Image		*/
+	public void Image(WebDriver driver, String elementFunction) {
+		try{
+		driver.findElement(By.xpath(elementFunction));
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+}
 }
