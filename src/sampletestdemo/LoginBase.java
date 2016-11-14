@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class LoginBase {
-	WebDriver driver = null;
+	WebDriver driver;
 	
 	public void launchTest(String url){
 		try{
@@ -33,5 +33,13 @@ public class LoginBase {
 			e.printStackTrace();
 		}
 		return true;
+	}
+	
+	public void tabledemo(String elementFunction4){
+		try{
+			driver.findElement(By.xpath(elementFunction4)).getText();
+		} catch (Exception e){
+			e.printStackTrace();
+		}
 	}
 }
