@@ -42,4 +42,12 @@ public class LoginBase {
 			e.printStackTrace();
 		}
 	}
+	
+	public void imagedemo(String elementFunction5){
+		try{
+			driver.findElement(By.cssSelector(elementFunction5)).click();
+		} catch (Exception e){
+			e.printStackTrace();
+		}
+	}
 }

@@ -14,7 +14,7 @@ public class LoginPageTest {
 	public void launchPage(){
 
 		try{
-			lbase.launchTest("http://www.w3schools.com/html/html_tables.asp");
+			lbase.launchTest("https://www.google.co.in/search?site=&q=Children%27s+Day+in+India&oi=ddle&ct=doodle-4-google-childrens-day-2016-india-5995349191688192-hp&hl=en&sa=X&ved=0ahUKEwi9ktfcz6fQAhXKCSwKHSRQAosQPQgE&biw=1366&bih=662&dpr=1");
 		} catch(Exception e){
 			e.printStackTrace();
 		}
@@ -29,12 +29,21 @@ public class LoginPageTest {
 		} catch(Exception e){
 			e.printStackTrace();
 		}
-	}	*/
+	}	
 	
 	@Test
 	public void getTable(){
 		try{
-			 lbase.tabledemo("//table/tbody/tr[5]/td[2]");
+			lbase.tabledemo("//table/tbody/tr[5]/td[2]");
+		} catch (Exception e){
+			e.printStackTrace();
+		}
+	}	*/
+
+	@Test
+	public void getimage(){
+		try{
+			lbase.imagedemo("#logocont > a > img");
 		} catch (Exception e){
 			e.printStackTrace();
 		}

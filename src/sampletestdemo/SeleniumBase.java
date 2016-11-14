@@ -10,6 +10,8 @@ public class SeleniumBase {
 	public void launchBrowser(WebDriver driver, String url){
 		try{
 			driver = new FirefoxDriver();	// launch the firefox browser
+			//System.setProperty("webdriver.chrome.driver", "path to chromedriver.exe");
+			//driver = new ChromeDriver();	// launch the chrome browser
 			driver.get(url);	// enter the url
 		} catch (Exception e){
 			e.printStackTrace();
@@ -34,6 +36,7 @@ public class SeleniumBase {
 		try{
 			driver.findElement(By.linkText(elementFunction)).click();
 			//driver.findElement(By.partialLinkText(elementFunction)).click();	//partial values (e.g click here = here)
+			//driver.findElement(By.cssSelector(elementFunction)).click();	//while using image links (e.g google logo), or by xpath();
 		}catch(Exception e){
 			e.printStackTrace();
 		}
