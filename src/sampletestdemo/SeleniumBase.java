@@ -92,14 +92,13 @@ public class SeleniumBase {
 	    }
 	
 	/*		Get the Table Data		*/
-	public void tableData(WebDriver driver, String elementFunction){
+	public String tableData(WebDriver driver, String elementFunction, String tableValue){
 		try{
-			driver.findElement(By.xpath(elementFunction)).getText();
-			// String str = driver.findElement(By.xpath(elementFunction)).getText(); 
-			// System.out.println(str);			// method to print the table value
+			tableValue = driver.findElement(By.xpath(elementFunction)).getText();
 		}catch(Exception e){
 			e.printStackTrace();
 		}
+		return tableValue;
 	}
 
 	/*		Accessing the Link		*/
