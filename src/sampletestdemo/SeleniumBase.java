@@ -8,7 +8,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
 public class SeleniumBase {
-	WebDriver driver;
 	
 	/*		Launch the Browser		*/
 	public void launchBrowser(WebDriver driver, String url, String browserType){
@@ -93,7 +92,7 @@ public class SeleniumBase {
 	    }
 	
 	/*		Get the Table Data		*/
-	 public String tabledemo(String elementFunction4){
+	 public String tabledemo(WebDriver driver, String elementFunction4){
 			String value = null;
 			try{
 				WebElement element = driver.findElement(By.xpath(elementFunction4));

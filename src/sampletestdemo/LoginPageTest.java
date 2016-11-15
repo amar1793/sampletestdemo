@@ -5,8 +5,8 @@ import org.testng.annotations.Test;
 
 public class LoginPageTest {
 	LoginBase lbase = new LoginBase();
-	String url = "http://signup.live.com";
-	String fName = "FirstName";
+	String url = "https://codex.wordpress.org/Administration_Screens#Permalinks";
+	/*String fName = "FirstName";
 	String lName = "LastName";
 	String fNameVal = "Amarnath";
 	String lNameVal = "M";
@@ -14,10 +14,17 @@ public class LoginPageTest {
 	String monthname = "September"; 
 	String checkval = "iOptinEmail";
 	String submitbutton = "CredentialsAction";
-	String country = "PhoneCountry";
+	String country = "Country";
 	String value = "India (+91)";
+	String Value1 = "Aruba";
+	String Value2 = "Togo";
+	String Value3 = "Zambia";	*/
+	//String ddval = "//*[@id=\"block-1\"]/h1";
+	//String ddvalue = "//*[@id=\"column-2\"]";
+	String linkval = "//*[@id=\"mw-content-text\"]/p[10]/a[2]";
 	//String imgcssval = "#logocont > a > img";
-	String tabval = "//table/tbody/tr[5]/td[2]";
+	//String tabval = "//table/tbody/tr[5]/td[2]";	
+	//String radval = "#wrapper > table.f14 > tbody > tr:nth-child(27) > td:nth-child(3) > input[type=\"radio\"]:nth-child(2)";
 	
 	
 	@BeforeTest
@@ -44,7 +51,7 @@ public class LoginPageTest {
 	public void launchPage4(){
 		lbase.launchTest("http://www.guru99.com");
 	
-}		*/
+}		
 	
 	@Test
 	public void enterValue(){
@@ -94,7 +101,17 @@ public class LoginPageTest {
 		}
 	}		
 	
-/*	@Test
+	@Test
+	public void listdown(){
+		try{
+			lbase.listDown(country, Value1, Value2, Value3);
+			System.out.println(Value1 + Value2 + Value3);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	} 
+	
+	@Test
 	public void getTable(){
 		try{
 			String val = lbase.tabledemo(tabval);
@@ -102,14 +119,43 @@ public class LoginPageTest {
 		} catch (Exception e){
 			e.printStackTrace();
 		}
-	}			*/
+	}	
+	
+			
+	@Test
+	public void radio(){
+		try{
+			lbase.isChecked(radval);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
 
-/*	@Test
+	@Test
 	public void getimage(){
 		try{
 			lbase.imagedemo(imgcssval);
 		} catch (Exception e){
 			e.printStackTrace();
 		}
+	}	
+	
+	@Test
+	public void dragndrop(){
+		try{
+			lbase.draganddrop(ddval,ddvalue);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 	}	*/
+		
+	@Test
+	public void testlink(){
+		try{
+			lbase.linkData(linkval);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	
 }
