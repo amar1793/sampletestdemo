@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 
 public class LoginPageTest {
 	LoginBase lbase = new LoginBase();
+	String url = "http://signup.live.com";
 	String fName = "FirstName";
 	String lName = "LastName";
 	String fNameVal = "Amarnath";
@@ -14,14 +15,14 @@ public class LoginPageTest {
 	String checkval = "iOptinEmail";
 	String submitbutton = "CredentialsAction";
 	String country = "PhoneCountry";
-	String value = "india";
+	String value = "India (+91)";
 	//String imgcssval = "#logocont > a > img";
 	String tabval = "//table/tbody/tr[5]/td[2]";
 	
 	
 	@BeforeTest
 	public void launchPage(){
-			lbase.launchTest("http://www.w3schools.com/html/html_tables.asp");	
+			lbase.launchTest(url);	
 	}
 	/*@Test
 	public void launchPage1(){
@@ -43,7 +44,7 @@ public class LoginPageTest {
 	public void launchPage4(){
 		lbase.launchTest("http://www.guru99.com");
 	
-}
+}		*/
 	
 	@Test
 	public void enterValue(){
@@ -77,6 +78,7 @@ public class LoginPageTest {
 	public void submit(){
 		try{
 			lbase.submitButton(submitbutton);
+			System.out.println("Action Performed");
 		} catch (Exception e){
 			e.printStackTrace();
 		}
@@ -90,9 +92,9 @@ public class LoginPageTest {
 		} catch (Exception e){
 			e.printStackTrace();
 		}
-	}		*/
+	}		
 	
-	@Test
+/*	@Test
 	public void getTable(){
 		try{
 			String val = lbase.tabledemo(tabval);
@@ -100,7 +102,7 @@ public class LoginPageTest {
 		} catch (Exception e){
 			e.printStackTrace();
 		}
-	}	
+	}			*/
 
 /*	@Test
 	public void getimage(){

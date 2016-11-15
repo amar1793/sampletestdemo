@@ -16,7 +16,7 @@ public class LoginBase {
 		} catch (Exception e){
 			e.printStackTrace();
 		} finally{
-			driver.close();
+			//driver.close();
 		}
 	}
 	
@@ -57,23 +57,20 @@ public class LoginBase {
 	}
 	
 	/*		Select from Dropdown		*/
-	public boolean dropDown(String elementFunction, String elementValue ){
+	public void dropDown(String elementFunction, String elementValue ){
     	try{
     		new Select(driver.findElement(By.id(elementFunction))).selectByVisibleText(elementValue);
-    		return equals(null);
     	}catch (Exception e){
     		e.printStackTrace();  
-    		return false;
     	}
     }
 	
 	/*		Select from Checkbox		*/
-	public boolean isChecked(String elementFunction){
+	public void isChecked(String elementFunction){
     	try{
-    		return driver.findElement(By.id(elementFunction)).isSelected();
+    		driver.findElement(By.id(elementFunction)).click();
     	}catch (Exception e){
     		e.printStackTrace();
-    		return false;
     	}
     }
     
