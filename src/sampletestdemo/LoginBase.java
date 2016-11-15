@@ -3,6 +3,7 @@ package sampletestdemo;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
 
 public class LoginBase {
 	WebDriver driver;
@@ -50,4 +51,39 @@ public class LoginBase {
 			e.printStackTrace();
 		}
 	}
+	
+	/*		Select from Dropdown		*/
+	public boolean dropDown(String elementFunction, String elementValue ){
+    	try{
+    		new Select(driver.findElement(By.id(elementFunction))).selectByVisibleText(elementValue);
+    		return equals(null);
+    	}catch (Exception e){
+    		e.printStackTrace();  
+    		return false;
+    	}
+    }
+	
+	/*		Select from Checkbox		*/
+	public boolean isChecked(String elementFunction){
+    	try{
+    		return driver.findElement(By.id(elementFunction)).isSelected();
+    	}catch (Exception e){
+    		e.printStackTrace();
+    		return false;
+    	}
+    }
+    
+	
+	/*		Click the Submit Button		*/
+	 public boolean submitButton(String elementFunction)
+	    {
+	    	try{
+	    		driver.findElement(By.id(elementFunction)).click();
+	    		return true;
+	    	}
+	    	catch (Exception e){
+	    		e.printStackTrace();
+	    		return false;
+	    	}
+	    }
 }

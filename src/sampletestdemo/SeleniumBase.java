@@ -3,19 +3,25 @@ package sampletestdemo;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
 public class SeleniumBase {
 	
+	
 	/*		Launch the Browser		*/
-	public void launchBrowser(WebDriver driver, String url){
+	public void launchBrowser(WebDriver driver, String url, String browserType){
 		try{
+		if(browserType.equalsIgnoreCase("firefox")){
 			driver = new FirefoxDriver();	// launch the firefox browser
-			//System.setProperty("webdriver.chrome.driver", "path to chromedriver.exe");
-			//driver = new ChromeDriver();	// launch the chrome browser
 			driver.get(url);	// enter the url
-		} catch (Exception e){
+		} else{
+			System.setProperty("webdriver.chrome.driver", "path to chromedriver.exe");	//set the path to chromedriver.exe
+			driver = new ChromeDriver();	// launch the chrome browser
+			driver.get(url);	// enter the url
+		}
+		}catch(Exception e){
 			e.printStackTrace();
 		} finally{
 			driver.close();
@@ -108,14 +114,14 @@ public class SeleniumBase {
 	}
 	
 	/*		Read the Label		*/
-	public void labelRead(WebDriver driver, String elementFunction){
+	public String labelRead(WebDriver driver, String elementFunction, String label){
 		try{
 			WebElement element = driver.findElement(By.id(elementFunction));
-			String label = element.getText();
-			System.out.println(label);
+			label = element.getText();
 		}catch(Exception e){
 			e.printStackTrace();
 		}
+		return label;
 	} 
 
 	/*		Image		*/
