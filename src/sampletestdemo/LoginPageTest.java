@@ -1,11 +1,8 @@
 package sampletestdemo;
 
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
-
 public class LoginPageTest {
 	LoginBase lbase = new LoginBase();
-	String url = "https://codex.wordpress.org/Administration_Screens#Permalinks";
+	//String url = "https://codex.wordpress.org/Administration_Screens#Permalinks";
 	/*String fName = "FirstName";
 	String lName = "LastName";
 	String fNameVal = "Amarnath";
@@ -21,17 +18,17 @@ public class LoginPageTest {
 	String Value3 = "Zambia";	*/
 	//String ddval = "//*[@id=\"block-1\"]/h1";
 	//String ddvalue = "//*[@id=\"column-2\"]";
-	String linkval = "//*[@id=\"mw-content-text\"]/p[10]/a[2]";
+	//String linkval = "//*[@id=\"mw-content-text\"]/p[10]/a[2]";
 	//String imgcssval = "#logocont > a > img";
 	//String tabval = "//table/tbody/tr[5]/td[2]";	
 	//String radval = "#wrapper > table.f14 > tbody > tr:nth-child(27) > td:nth-child(3) > input[type=\"radio\"]:nth-child(2)";
 	
 	
-	@BeforeTest
+	/*	@BeforeTest
 	public void launchPage(){
 			lbase.launchTest(url);	
 	}
-	/*@Test
+	@Test
 	public void launchPage1(){
 		lbase.launchTest("http://www.google.com");
 	
@@ -147,7 +144,7 @@ public class LoginPageTest {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-	}	*/
+	}	
 		
 	@Test
 	public void testlink(){
@@ -156,6 +153,6 @@ public class LoginPageTest {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-	}
+	}	*/
 	
 }

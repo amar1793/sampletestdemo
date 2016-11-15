@@ -46,13 +46,11 @@ public class SeleniumBase {
 	}
 	
 	/*		Select from Dropdown		*/
-	public boolean dropDown(WebDriver driver, String elementFunction, String elementValue ){
+	public void dropDown(WebDriver driver, String elementFunction, String elementValue ){
     	try{
     		new Select(driver.findElement(By.id(elementFunction))).selectByVisibleText(elementValue);
-    		return equals(null);
     	}catch (Exception e){
     		e.printStackTrace();  
-    		return false;
     	}
     }
 	
@@ -80,7 +78,7 @@ public class SeleniumBase {
     
 	
 	/*		Click the Button		*/
-	 public boolean button(WebDriver driver, String elementFunction){
+	 public boolean click(WebDriver driver, String elementFunction){
 	    	try{
 	    		driver.findElement(By.id(elementFunction)).click();
 	    		return true;
@@ -91,7 +89,7 @@ public class SeleniumBase {
 	    	}
 	    }
 	
-	/*		Get the Table Data		*/
+	/*		Get the Table Data		
 	 public String tabledemo(WebDriver driver, String elementFunction4){
 			String value = null;
 			try{
@@ -101,8 +99,9 @@ public class SeleniumBase {
 				e.printStackTrace();
 			}
 			return value;
-		}
-	/*		Accessing the Link		*/
+		}	*/
+	 
+	/*		Accessing the Link		
 	public void linkData(WebDriver driver, String elementFunction){
 		try{
 			driver.findElement(By.linkText(elementFunction)).click();
@@ -111,7 +110,7 @@ public class SeleniumBase {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-	}
+	}	*/
 	
 	/*		Read the Label		*/
 	public String labelRead(WebDriver driver, String elementFunction, String label){

@@ -8,9 +8,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 public class LoginBase {
-	WebDriver driver;
 	
-	public void launchTest(String url){
+	public void launchTest(WebDriver driver, String url){
 		try{
 			driver = new FirefoxDriver();
 			driver.get(url);
@@ -21,7 +20,7 @@ public class LoginBase {
 		}
 	}
 	
-	public void enterData(String elementFuntion, String elementFunction2){
+	public void enterData(WebDriver driver, String elementFuntion, String elementFunction2){
 		try{
 			driver.findElement(By.id(elementFuntion)).sendKeys(elementFunction2);;
 		} catch(Exception e){
@@ -29,7 +28,7 @@ public class LoginBase {
 		}
 	}
 	
-	public boolean clickData(String elementFuntion3){
+	public boolean clickData(WebDriver driver, String elementFuntion3){
 		try{
 			driver.findElement(By.name(elementFuntion3)).click();
 		} catch (Exception e) {
@@ -38,7 +37,7 @@ public class LoginBase {
 		return true;
 	}
 	
-	public String tabledemo(String elementFunction4){
+	public String tabledemo(WebDriver driver, String elementFunction4){
 		String value = null;
 		try{
 			WebElement element = driver.findElement(By.xpath(elementFunction4));
@@ -49,7 +48,7 @@ public class LoginBase {
 		return value;
 	}
 	
-	public void imagedemo(String elementFunction5){
+	public void imagedemo(WebDriver driver, String elementFunction5){
 		try{
 			driver.findElement(By.cssSelector(elementFunction5)).click();
 		} catch (Exception e){
@@ -58,7 +57,7 @@ public class LoginBase {
 	}
 	
 	/*		Select from Dropdown		*/
-	public void dropDown(String elementFunction, String elementValue ){
+	public void dropDown(WebDriver driver, String elementFunction, String elementValue ){
     	try{
     		new Select(driver.findElement(By.id(elementFunction))).selectByVisibleText(elementValue);
     	}catch (Exception e){
@@ -67,7 +66,7 @@ public class LoginBase {
     }
 	
 	/*		Select from Checkbox		*/
-	public void isChecked(String elementFunction){
+	public void isChecked(WebDriver driver, String elementFunction){
     	try{
     		driver.findElement(By.cssSelector(elementFunction)).click();
     	}catch (Exception e){
@@ -77,7 +76,7 @@ public class LoginBase {
     
 	
 	/*		Click the Submit Button		*/
-	 public boolean submitButton(String elementFunction)
+	 public boolean submitButton(WebDriver driver, String elementFunction)
 	    {
 	    	try{
 	    		driver.findElement(By.id(elementFunction)).click();
@@ -89,7 +88,7 @@ public class LoginBase {
 	    	}
 	    }
 	 
-	 public void listDown(String elementFunction, String elementValue, String elementValue1, String elementValue2 ){
+	 public void listDown(WebDriver driver, String elementFunction, String elementValue, String elementValue1, String elementValue2 ){
 	    	try{
 	    		 Select se = new Select(driver.findElement(By.id(elementFunction)));
 	    	     se.selectByVisibleText(elementValue);
@@ -100,7 +99,7 @@ public class LoginBase {
 	    	}
 	    }
 	 
-	 public void draganddrop(String elementFunction, String elementValue){
+	 public void draganddrop(WebDriver driver, String elementFunction, String elementValue){
 		 try{
 			 WebElement drag = driver.findElement(By.xpath(elementFunction));
 				WebElement drop = driver.findElement(By.xpath(elementValue));
@@ -112,7 +111,7 @@ public class LoginBase {
 		 }
 	 }
 	 
-	 public void linkData(String elementFunction){
+	 public void linkData(WebDriver driver, String elementFunction){
 			try{
 				driver.findElement(By.xpath(elementFunction)).click();
 				}catch(Exception e){
