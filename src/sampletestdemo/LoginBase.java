@@ -2,6 +2,7 @@ package sampletestdemo;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
@@ -36,12 +37,15 @@ public class LoginBase {
 		return true;
 	}
 	
-	public void tabledemo(String elementFunction4){
+	public String tabledemo(String elementFunction4){
+		String value = null;
 		try{
-			driver.findElement(By.xpath(elementFunction4)).getText();
+			WebElement element = driver.findElement(By.xpath(elementFunction4));
+			value = element.getText();
 		} catch (Exception e){
 			e.printStackTrace();
 		}
+		return value;
 	}
 	
 	public void imagedemo(String elementFunction5){

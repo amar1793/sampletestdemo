@@ -8,7 +8,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
 public class SeleniumBase {
-	
+	WebDriver driver;
 	
 	/*		Launch the Browser		*/
 	public void launchBrowser(WebDriver driver, String url, String browserType){
@@ -40,7 +40,7 @@ public class SeleniumBase {
 	/*		Click the Radio Button		*/
 	public void clickRadio(WebDriver driver, String elementFunction){
 		try{
-			driver.findElement(By.id(elementFunction)).isSelected();
+			driver.findElement(By.id(elementFunction)).click();
 		}catch(Exception e){
 			e.printStackTrace();
 		}
@@ -58,10 +58,12 @@ public class SeleniumBase {
     }
 	
 	/*		Select from Listbox		*/
-	public void listDown(WebDriver driver, String elementFunction, String elementValue ){
+	public void listDown(WebDriver driver, String elementFunction, String elementValue, String elementValue1, String elementValue2 ){
     	try{
-    		 Select dataDropDown = new Select(driver.findElement(By.xpath(elementFunction)));
-    	     dataDropDown.selectByVisibleText(elementValue);
+    		 Select se = new Select(driver.findElement(By.xpath(elementFunction)));
+    	     se.selectByVisibleText(elementValue);
+    	     se.selectByVisibleText(elementValue1);
+    	     se.selectByVisibleText(elementValue2);
     	}catch (Exception e){
     		e.printStackTrace();  
     	}
@@ -78,9 +80,8 @@ public class SeleniumBase {
     }
     
 	
-	/*		Click the Submit Button		*/
-	 public boolean submitButton(WebDriver driver, String elementFunction)
-	    {
+	/*		Click the Button		*/
+	 public boolean button(WebDriver driver, String elementFunction){
 	    	try{
 	    		driver.findElement(By.id(elementFunction)).click();
 	    		return true;
@@ -92,15 +93,16 @@ public class SeleniumBase {
 	    }
 	
 	/*		Get the Table Data		*/
-	public String tableData(WebDriver driver, String elementFunction, String tableValue){
-		try{
-			tableValue = driver.findElement(By.xpath(elementFunction)).getText();
-		}catch(Exception e){
-			e.printStackTrace();
+	 public String tabledemo(String elementFunction4){
+			String value = null;
+			try{
+				WebElement element = driver.findElement(By.xpath(elementFunction4));
+				value = element.getText();
+			} catch (Exception e){
+				e.printStackTrace();
+			}
+			return value;
 		}
-		return tableValue;
-	}
-
 	/*		Accessing the Link		*/
 	public void linkData(WebDriver driver, String elementFunction){
 		try{
@@ -122,13 +124,4 @@ public class SeleniumBase {
 		}
 		return label;
 	} 
-
-	/*		Image		*/
-	public void Image(WebDriver driver, String elementFunction) {
-		try{
-		driver.findElement(By.xpath(elementFunction));
-		}catch(Exception e){
-			e.printStackTrace();
-		}
-}
 }

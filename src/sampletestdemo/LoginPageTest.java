@@ -16,12 +16,12 @@ public class LoginPageTest {
 	String country = "PhoneCountry";
 	String value = "india";
 	//String imgcssval = "#logocont > a > img";
-	//String tabval = "//table/tbody/tr[5]/td[2]";
+	String tabval = "//table/tbody/tr[5]/td[2]";
 	
 	
 	@BeforeTest
 	public void launchPage(){
-			lbase.launchTest("https://signup.live.com");	
+			lbase.launchTest("http://www.w3schools.com/html/html_tables.asp");	
 	}
 	/*@Test
 	public void launchPage1(){
@@ -35,6 +35,7 @@ public class LoginPageTest {
 }
 	@Test
 	public void launchPage3(){
+	
 		lbase.launchTest("http://www.outlook.com");
 	
 }
@@ -42,7 +43,7 @@ public class LoginPageTest {
 	public void launchPage4(){
 		lbase.launchTest("http://www.guru99.com");
 	
-}*/
+}
 	
 	@Test
 	public void enterValue(){
@@ -89,18 +90,19 @@ public class LoginPageTest {
 		} catch (Exception e){
 			e.printStackTrace();
 		}
-	}
+	}		*/
 	
-/*	@Test
+	@Test
 	public void getTable(){
 		try{
-			lbase.tabledemo(tabval);
+			String val = lbase.tabledemo(tabval);
+			System.out.println(val);
 		} catch (Exception e){
 			e.printStackTrace();
 		}
 	}	
 
-	@Test
+/*	@Test
 	public void getimage(){
 		try{
 			lbase.imagedemo(imgcssval);
