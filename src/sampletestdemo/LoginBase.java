@@ -9,7 +9,8 @@ import org.openqa.selenium.support.ui.Select;
 
 public class LoginBase {
 	
-	public void launchTest(WebDriver driver, String url){
+	public void launchTest(String url){
+		WebDriver driver = null;
 		try{
 			driver = new FirefoxDriver();
 			driver.get(url);

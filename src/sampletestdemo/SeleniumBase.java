@@ -10,7 +10,8 @@ import org.openqa.selenium.support.ui.Select;
 public class SeleniumBase {
 	
 	/*		Launch the Browser		*/
-	public void launchBrowser(WebDriver driver, String url, String browserType){
+	public void launchBrowser(String url, String browserType){
+		WebDriver driver = null;
 		try{
 		if(browserType.equalsIgnoreCase("firefox")){
 			driver = new FirefoxDriver();	// launch the firefox browser
