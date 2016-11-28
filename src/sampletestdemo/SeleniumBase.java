@@ -15,6 +15,8 @@ public class SeleniumBase {
 			driver = new FirefoxDriver();
 			//System.setProperty("webdriver.ie.driver", "F:\\Project Softwares\\IEDriverServer.exe");
 			//driver = new InternetExplorerDriver();
+			//System.setProperty("webdriver.chrome.driver", "F:\\Project Softwares\\chromedriver.exe");
+			//driver = new ChromeDriver();
 			driver.get(url);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -26,9 +28,9 @@ public class SeleniumBase {
 	/* Enter the value to Textbox */
 	public void enterToTextbox(WebDriver driver, String elementFunction, String elementValue) {
 		try {
-			if (driver.findElement(By.xpath(elementFunction)).isDisplayed()) {
-				if (driver.findElement(By.xpath(elementFunction)).isEnabled()) {
-					WebElement element = driver.findElement(By.xpath(elementFunction));
+			if (driver.findElement(By.className(elementFunction)).isDisplayed()) {
+				if (driver.findElement(By.className(elementFunction)).isEnabled()) {
+					WebElement element = driver.findElement(By.className(elementFunction));
 					element.sendKeys(elementValue);
 				} // Assert.fail("Not Enabled");
 			} // Assert.fail("Not Displayed");
@@ -172,7 +174,7 @@ public class SeleniumBase {
 	/* Click the Button */
 	public void click(WebDriver driver, String elementFunction) {
 		try {
-			driver.findElement(By.id(elementFunction)).click();
+			driver.findElement(By.xpath(elementFunction)).click();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -44,7 +44,7 @@ public class ClearTrip {
 			driver.manage().window().maximize();
 			getText(driver);
 			testDropDown(driver);
-			selectDate(driver, expectedDate);
+			clickDate(driver, expectedDate);
 			//testClick(driver);
 		} catch (Exception e) {
 			e.printStackTrace();
